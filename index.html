@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='./stylesheet.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Library App</title>
+</head>
+<body>
+    <div class='container'>
+        <div class='title-container'>
+            <i class="fa fa-book fa-5x"></i>
+            <h1 class='title'>Library</h1>
+
+        </div>
+        <div class='library-container'>
+            <button id='book-btn'><i class="fa fa-plus"></i> Add Book</button>
+            <!-- popup form content goes here-->
+            <div id='book-form-popup'>
+                <div class='book-form-container'>
+                    <form class='book-form'>
+                        <h1> Add Book</h1>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+                    
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                    
+                        <button type="submit" class="btn">Login</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class='footer'>
+
+        </div>
+    </div>
+    <script src='./library.js'></script>
+</body>
+</html>

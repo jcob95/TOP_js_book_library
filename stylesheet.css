@@ -1,0 +1,55 @@
+:root{
+    --title-font-color:#282a33;
+}
+
+.title-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #282a33;
+}
+
+.title {
+    display: flex;
+    color: var(--title-font);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+    line-height: 1;
+    letter-spacing: 10px;
+    text-align: center;
+  }
+
+.library-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#book-btn{
+    background-color: #a0051f; /* Green */
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    box-sizing: border-box;
+}
+
+#book-form-popup{
+    display:none;
+}
+
+.book-form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+.book-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
