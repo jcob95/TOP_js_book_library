@@ -1,8 +1,16 @@
 
-const addBookBtn = document.getElementById('book-btn')
+const addBookBtn = document.getElementById('book-btn');
+const closeBtn = document.querySelector('.close');
 
 addBookBtn.addEventListener('click',() => {addBookToLibrary()});
-let myLibrary = new library();
+closeBtn.addEventListener('click',function() {
+    document.querySelector('.bg-modal').style.display = 'none';
+})
+class library{
+    constructor(){
+        this.books = [];
+    }
+}
 
 class Book {
     constructor(title='unknown', author='unknown', pages=0, read=false) {
@@ -17,22 +25,13 @@ class Book {
     }
 }
 
-class library{
-    constructor(){
-        this.books = [];
-    }
-}
 
+let myLibrary = new library();
 myLibrary.books.push(new Book("book 1", "joe bloggs 1", "100",true));
 myLibrary.books.push(new Book("book 2", "joe bloggs 2", "200",false));
 
 function addBookToLibrary() {
-  document.getElementById('book-form-popup').style.display = 'block';
-  addBookBtn.style.display = 'none';
+    document.querySelector('.bg-modal').style.display = 'flex';
 }
 
-function closeForm(){
-    document.getElementById('book-form-popup').style.display = 'none';
-    addBookBtn.style.display = 'inline-block';
-}
 

@@ -19,21 +19,39 @@
         <div class='library-container'>
             <button id='book-btn'><i class="fa fa-plus"></i> Add Book</button>
             <!-- popup form content goes here-->
+            <!--
             <div id='book-form-popup'>
                 <div class='book-form-container'>
                     <form class='book-form'>
                         <h1> Add Book</h1>
-                        <label for="email"><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
-                    
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-                    
+                        <label for="book-title"><b>Book Title</b></label>
+                        <input type="text" placeholder="Book Title" name="book-title" required>
+
+                        <label for="author"><b>Author</b></label>
+                        <input type="text" placeholder="Author name" name="author" required>
+
+                        <label for="pages"><b>Pages</b></label>
+                        <input type="number" placeholder="Pages" name="pages" required>
+                                        
                         <button type="submit" class="btn">Login</button>
                         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                     </form>
                 </div>
             </div>
+            -->
+            <div class="bg-modal">
+                <div class="modal-content">
+                    <div class="close">&times;</div>
+                    <h2> Add Book</h1>
+                        <form class='book-form'>
+                            <input type="text" placeholder="Book Title" name="book-title" required>
+                            <input type="text" placeholder="Author name" name="author" required>
+                            <input type="number" placeholder="Pages" name="pages" required>
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                </div>
+            </div>
+
         </div>
         <div class='footer'>
 
