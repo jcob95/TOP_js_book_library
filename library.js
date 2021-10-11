@@ -4,6 +4,7 @@ const closeBtn = document.querySelector('.close');
 const container = document.querySelector('.container');
 const bgModal = document.querySelector('.bg-modal')
 const bookform = document.querySelector('.book-form');
+const booksContainer = document.querySelector('.books-container');
 
 addBookBtn.addEventListener('click',() => {openModal()});
 closeBtn.addEventListener('click',() => {closeModal()})
@@ -33,7 +34,11 @@ function closeModal(){
     bookform.reset();
 }
 function addBookToLibrary(data){
+    data['read'] = (data['read'] == "true");
     console.log(data);
+
+    let book = new Book(data['book-title'],data['author'],data['pages'],data['read'])
+    //booksContainer.innerHTML = `<span>${data['author']}<\span>`
 }
 function openModal() {
     document.querySelector('.bg-modal').style.display = 'flex';

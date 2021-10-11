@@ -19,26 +19,6 @@
         <div class='library-container'>
             <button id='book-btn'><i class="fa fa-plus"></i> Add Book</button>
             <!-- popup form content goes here-->
-            <!--
-            <div id='book-form-popup'>
-                <div class='book-form-container'>
-                    <form class='book-form'>
-                        <h1> Add Book</h1>
-                        <label for="book-title"><b>Book Title</b></label>
-                        <input type="text" placeholder="Book Title" name="book-title" required>
-
-                        <label for="author"><b>Author</b></label>
-                        <input type="text" placeholder="Author name" name="author" required>
-
-                        <label for="pages"><b>Pages</b></label>
-                        <input type="number" placeholder="Pages" name="pages" required>
-                                        
-                        <button type="submit" class="btn">Login</button>
-                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                    </form>
-                </div>
-            </div>
-            -->
             <div class="bg-modal">
                 <div class="modal-content">
                     <div class="close">&times;</div>
@@ -49,7 +29,7 @@
                             <input type="number" placeholder="Pages" name="pages" required>
                             <span>
                                 <label for="read">Read:</label>
-                                <input type="checkbox" id="read" name="read">
+                                <input type="checkbox" id="read" name="read" value="true">
                             </span>
 
 
@@ -57,7 +37,9 @@
                         </form>
                 </div>
             </div>
+            <div class='books-container'>
 
+            </div>
         </div>
         <div class='footer'>
 
