@@ -76,11 +76,15 @@ function addBook(book){
 
     //const read = document.getElementById("read").value;
     let readNode = document.createElement("h3");
-    readNode.innerHTML = `Read: ${book.read}`;
+    readNode.textContent = `Read: ${book.read}`;
 
     let updateNode = document.createElement("button");
     updateNode.classList = "update";
     updateNode.innerHTML = `Update <i class="fa fa-pen"></i>`;
+    updateNode.addEventListener('click',()=>{
+            book.read = !book.read;
+            render()
+    })
 
 
     let trashNode = document.createElement("button");
