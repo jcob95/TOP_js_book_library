@@ -81,20 +81,16 @@ function addBook(book){
     let updateNode = document.createElement("button");
     updateNode.classList = "update";
     updateNode.innerHTML = `Update <i class="fa fa-pen"></i>`;
-    updateNode.addEventListener('click', () =>{
-        if (readNode.innerHTML == "Read: true"){
-            readNode.innerHTML == "Read: false"
-        }
-        else {
-            readNode.innerHTML == "Read: true"
-        }
-    })
 
 
     let trashNode = document.createElement("button");
     trashNode.classList = "trash";
     trashNode.innerHTML = `Delete <i class="fa fa-trash-alt">`;
-
+    trashNode.addEventListener('click',()=>{
+        myLibrary.splice(myLibrary.indexOf(book),1);
+        render()
+    })
+    
     bookNode.appendChild(titleNode);
     bookNode.appendChild(authorNode);
     bookNode.appendChild(pageNode);
