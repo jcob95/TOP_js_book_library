@@ -54,12 +54,14 @@ function closeModal(){
 
 //function to loop over library books and render them
 function render(){
+    booksContainer.innerHTML = "";
     myLibrary.forEach(function(book) {
         addBook(book);
     })
 };
 
 function addBook(book){
+    console.log(`adding book: ${book.title}, author:${book.author}`);
     bookNode = document.createElement('div');
     bookNode.classList.add('book');
 
@@ -108,7 +110,8 @@ function addBookToLibrary(data){
     let book = new Book(data['book-title'],data['author'],data['pages'],data['read']);
     console.log(book.title);
     myLibrary.push(book);
-    addBook(data);
+    render()
+    //addBook(data);
     //booksContainer.innerHTML = `<span>${data['author']}<\span>`
 }
 
