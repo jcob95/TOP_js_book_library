@@ -6,11 +6,7 @@ const bgModal = document.querySelector('.bg-modal')
 const bookform = document.querySelector('.book-form');
 const booksContainer = document.querySelector('.books-container');
 
-class library{
-    constructor(){
-        this.books = [];
-    }
-}
+let globalID = 0; //set the ID for all books. Avoids problems with ids using element indexes
 
 class Book {
     constructor(title='unknown', author='unknown', pages=0, read=false) {
@@ -22,10 +18,11 @@ class Book {
             let info_str = `${this.title} by ${author}, ${pages} long, Have read: ${this.read}`;
             return info_str;
         };
+        this.bookid = globalID++;
     }
 }
 
-let myLibrary = new library();
+let myLibrary = [];
 
 addBookBtn.addEventListener('click',() => {openModal()});
 closeBtn.addEventListener('click',() => {closeModal()})
@@ -55,27 +52,42 @@ function closeModal(){
     bookform.reset();
 }
 
-//create the html to show book information
-function addBook(data){
+//function to loop over library books and render them
+function render(){
+    myLibrary.forEach(function(book) {
+        addBook(book);
+    })
+};
+
+function addBook(book){
     bookNode = document.createElement('div');
     bookNode.classList.add('book');
 
     let titleNode = document.createElement("h2");
-    titleNode.innerHTML = `Title: ${data['book-title']}`;
+    titleNode.innerHTML = `Title: ${book.title}`;
 
     let authorNode = document.createElement("h3");
-    authorNode.innerHTML = `Author: ${data['author']}`;
+    authorNode.innerHTML = `Author: ${book.author}`;
 
     let pageNode = document.createElement("h3");
-    pageNode.innerHTML = `Pages: ${data['pages']}`;
+    pageNode.innerHTML = `Pages: ${book.pages}`;
 
-    const read = document.getElementById("read").value;
+    //const read = document.getElementById("read").value;
     let readNode = document.createElement("h3");
-    readNode.innerHTML = `Read? ${data['read']}`;
+    readNode.innerHTML = `Read: ${book.read}`;
 
     let updateNode = document.createElement("button");
     updateNode.classList = "update";
     updateNode.innerHTML = `Update <i class="fa fa-pen"></i>`;
+    updateNode.addEventListener('click', () =>{
+        if (readNode.innerHTML == "Read: true"){
+            readNode.innerHTML == "Read: false"
+        }
+        else {
+            readNode.innerHTML == "Read: true"
+        }
+    })
+
 
     let trashNode = document.createElement("button");
     trashNode.classList = "trash";
@@ -93,9 +105,9 @@ function addBook(data){
 function addBookToLibrary(data){
     data['read'] = (data['read'] == "true");
     console.log(data);
-
-    let book = new Book(data['book-title'],data['author'],data['pages'],data['read'])
-    myLibrary.books.push(book);
+    let book = new Book(data['book-title'],data['author'],data['pages'],data['read']);
+    console.log(book.title);
+    myLibrary.push(book);
     addBook(data);
     //booksContainer.innerHTML = `<span>${data['author']}<\span>`
 }
@@ -106,13 +118,10 @@ function openModal() {
 
 
 
-book1_data = {'book-title':'1','author':'1','pages':'1','read':true};
-addBook(book1_data);
-addBook(book1_data);
-myLibrary.books.push(new Book("book 1", "joe bloggs 1", "100",true));
-
-myLibrary.books.push(new Book("book 2", "joe bloggs 2", "200",false));
-
+//book1_data = {'book-title':'1','author':'1','pages':'1','read':true};
+myLibrary.push(new Book("book 1", "joe bloggs 1", "100",true));
+myLibrary.push(new Book("book 2", "joe bloggs 2", "200",false));
+render()
 
 
 
