@@ -80,16 +80,15 @@ function addBook(book){
 
     let updateNode = document.createElement("button");
     updateNode.classList = "update";
-    updateNode.innerHTML = `Update <i class="fa fa-pen"></i>`;
+    updateNode.innerHTML = `Update <i class="fa fa-pencil-square-o"></i>`;
     updateNode.addEventListener('click',()=>{
             book.read = !book.read;
             render()
     })
 
-
     let trashNode = document.createElement("button");
     trashNode.classList = "trash";
-    trashNode.innerHTML = `Delete <i class="fa fa-trash-alt">`;
+    trashNode.innerHTML = `<i class="fa fa-trash-o">`;
     trashNode.addEventListener('click',()=>{
         myLibrary.splice(myLibrary.indexOf(book),1);
         render()
